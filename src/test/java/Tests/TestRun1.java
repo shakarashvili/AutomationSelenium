@@ -1,6 +1,9 @@
 package Tests;
 
 import Driver.DriverSetUp1;
+import Driver.DriverSetUp2;
+import Driver.DriverSetUp4;
+import Driver.DriverSetUpV3;
 import Functions.Functions1;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.interactions.Actions;
@@ -18,8 +21,8 @@ public class TestRun1 {
 
 
     @BeforeClass
-    public void SetUpdriver(){
-        driver = DriverSetUp1.setUpdriver();
+    public void SetUpdriver() throws InterruptedException {
+        driver = DriverSetUp4.method1();
        functions1 = new Functions1(driver);
         //Functions1.driver.get("https://www.automationexercise.com/#google_vignette");
         wait = new WebDriverWait(driver, Duration.ofSeconds(10));
@@ -32,6 +35,11 @@ public class TestRun1 {
         if (driver != null) {
             driver.quit();
         }
+    }
+    @Test
+    public void ale() throws InterruptedException {
+        driver.get("https://www.automationexercise.com/#google_vignette");
+        Thread.sleep(2000);
     }
 
     @Test

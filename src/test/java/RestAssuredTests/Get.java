@@ -17,6 +17,22 @@ import static org.hamcrest.Matchers.*;
 
 
 public class Get {
+    @Test
+    public void PerformanceTestForGetMEthod(){
+
+       String baseURI = "https://jsonplaceholder.typicode.com/";
+       long startTimeGet = System.currentTimeMillis();
+       Response getResponse = RestAssured.get(baseURI );
+       long endTimeGet = System.currentTimeMillis();
+        System.out.println("Get Response Time " + (endTimeGet - startTimeGet) + "ms");
+        System.out.println("Get Status Code: " + getResponse.getStatusCode() );
+        Response response =
+                given()
+                        .when()
+                        .get("/posts/");
+        System.out.println(response.getBody().asString());
+
+    }
 
 @Test
     public void testGetResquest(){
